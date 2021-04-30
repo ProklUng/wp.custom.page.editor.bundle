@@ -4,6 +4,7 @@ namespace Prokl\WordpressCustomTableEditorBundle\Services\Manager;
 
 use Prokl\WordpressCustomTableEditorBundle\Services\Bridge\Contracts\FieldProcessorInterface;
 use Prokl\WordpressCustomTableEditorBundle\Services\Bridge\Contracts\ViewGeneratorInterface;
+use Prokl\WordpressCustomTableEditorBundle\Services\Contracts\AdminEntityInterface;
 use Prokl\WordpressCustomTableEditorBundle\Services\Contracts\DataManagerInterface;
 use Prokl\WordpressCustomTableEditorBundle\Services\Events\EditFormAfterLoadDatabaseEvent;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
