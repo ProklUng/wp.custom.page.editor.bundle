@@ -2,6 +2,7 @@
 
 namespace Prokl\WordpressCustomTableEditorBundle\Services\Manager;
 
+use Prokl\WordpressCustomTableEditorBundle\Services\Contracts\DataManagerInterface;
 use RuntimeException;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Validator\Validation;
