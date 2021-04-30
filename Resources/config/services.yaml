@@ -4,9 +4,14 @@ services:
     autoconfigure: true
     public: true
 
+  table_admin_page_manager.wp_globals:
+    public: false
+    class: Prokl\WordpressCustomTableEditorBundle\Services\Wordpress\WordpressGlobals
+
   table_admin_page_manager.wpdb:
     public: false
     class: wpdb
+    factory: ['@table_admin_page_manager.wp_globals', 'wpdb']
 
   # Слушатели событий по умолчанию.
   table_admin_page_manager.default_events:
