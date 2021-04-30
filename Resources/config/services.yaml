@@ -22,3 +22,17 @@ services:
     class: Prokl\WordpressCustomTableEditorBundle\Services\Manager\CollectorEntities
     factory: ['@table_admin_page_manager.collector', 'init']
     tags: ['service.bootstrap']
+
+  admin_custom_table.before_save_init:
+    class: Prokl\WordpressCustomTableEditorBundle\Services\CustomEvents\EventsListenerInitializer
+    arguments: ['@event_dispatcher', 'admin.custom.table.before.save', !tagged_iterator admin.custom.table.before.save]
+    calls:
+      - init: []
+    tags: ['service.bootstrap']
+
+  # Handler генерации фикстуры текстового поля с ограничением по минимальной и максимальной длине.
+  example_entity.length_fixture_generator:
+    class: Prokl\WordpressCustomTableEditorBundle\Services\FixtureGenerators\DescriptionLength
+    arguments: [5, 150]
+    tags:
+      - { name: fixture_generator.item }

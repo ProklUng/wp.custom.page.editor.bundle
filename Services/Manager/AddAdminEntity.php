@@ -3,6 +3,7 @@
 namespace Prokl\WordpressCustomTableEditorBundle\Services\Manager;
 
 use Prokl\WordpressCustomTableEditorBundle\Services\Contracts\DataManagerInterface;
+use Prokl\WordpressCustomTableEditorBundle\Services\Events\AfterLoadDatabaseEvent;
 use RuntimeException;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Validator\Validation;
