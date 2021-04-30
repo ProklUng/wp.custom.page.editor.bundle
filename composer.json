@@ -1,0 +1,41 @@
+{
+    "name": "proklung/wp-custom-page-editor-bundle",
+    "description": "Бандл для редактирования кастомных таблиц в Wordpress",
+    "type": "symfony-bundle",
+    "keywords": [
+        "wordpress",
+        "wordpress-symfony",
+        "wordpress-bundle"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Gavrilov Fedy",
+            "email": "fedor.gavrilov.75@mail.ru",
+            "homepage": "https://github.com/ProklUng"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/ProklUng/wp.custom.page.editor.bundle/issues",
+        "source": "https://github.com/ProklUng/wp.custom.page.editor.bundle"
+    },
+    "autoload": {
+        "psr-4": {
+            "Prokl\\WordpressCustomTableEditorBundle\\": ""
+        },
+        "exclude-from-classmap": [
+            "Tests/"
+        ]
+    },
+    "require": {
+        "php": ">=7.3",
+        "symfony/dependency-injection": "^3.4 || ^4.0 || ^5.0",
+        "symfony/http-kernel": "^4.0 || ^5.0",
+        "symfony/config": "~4|~5",
+        "symfony/event-dispatcher": "~4|~5",
+        "symfony/validator": "~4|~5"
+    },
+    "require-dev": {
+        "proklung/phpunit-testing-tools": "^1.0"
+    }
+}

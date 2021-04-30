@@ -1,0 +1,24 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: true
+
+  # Слушатели событий по умолчанию.
+  table_admin_page_manager.default_events:
+    class: Prokl\WordpressCustomTableEditorBundle\Services\Manager\BaseEventsManager
+    arguments: ['@event_dispatcher']
+
+  table_admin_page_manager.collector:
+    class: Prokl\WordpressCustomTableEditorBundle\Services\Manager\CollectorEntities
+    arguments:
+      - '@wpdb'
+      - '@event_dispatcher'
+      - '@table_admin_page_manager.default_events'
+      - !tagged { tag: wp_custom_table_editable }
+
+  # Инициализация кастомных редакторов таблиц.
+  table_admin_page_manager.initialize:
+    class: Prokl\WordpressCustomTableEditorBundle\Services\Manager\CollectorEntities
+    factory: ['@table_admin_page_manager.collector', 'init']
+    tags: ['service.bootstrap']

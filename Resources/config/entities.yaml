@@ -1,0 +1,10 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: true
+
+  example_entity:
+    class: Prokl\WordpressCustomTableEditorBundle\Entities\ExampleEntity
+    tags:
+      - { name: wp_custom_table_editable }
