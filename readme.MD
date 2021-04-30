@@ -149,6 +149,13 @@ class ExampleEntity extends DataManager
 - `setTable(string $table)` - задать имя таблицы
 - `createFromSchema(DataManagerInterface $schema)` - создать таблицу из схемы (схема - сущность, см. выше) 
 
+
+Сервис `table_admin_page_manager.creator_schema` - создать схему из реальной таблицы.
+
+- `setTable(string $table)` - задать имя таблицы
+- `existTable()` - существует ли таблица?
+- `getTableDescription()` - получить схему таблицы
+
 ##### Генератор фикстур
 
 Сервис `table_admin_page_manager.fixture_generator`.
@@ -157,7 +164,7 @@ class ExampleEntity extends DataManager
 
 ##### Консольные команды
 
-- `migrator:seed`
+- `migrator:seed` - Наполнить таблицу фикстурными данными
 
 Параметры:
 

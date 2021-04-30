@@ -46,6 +46,15 @@ services:
 
   Prokl\WordpressCustomTableEditorBundle\Services\Utils\CreatorTable: '@table_admin_page_manager.creator_table'
 
+  # Создать схему из таблицы
+  table_admin_page_manager.creator_schema:
+    class: Prokl\WordpressCustomTableEditorBundle\Services\Utils\CreateSchema
+    arguments: ['@table_admin_page_manager.wpdb']
+
+  table_admin_page_manager.sql_helper:
+    class: Prokl\WordpressCustomTableEditorBundle\Services\Utils\SqlHelper
+    arguments: ['@table_admin_page_manager.wpdb']
+
   # Генератор фикстур
   table_admin_page_manager.fixture_generator:
     class: Prokl\WordpressCustomTableEditorBundle\Services\Utils\FixtureGenerator
