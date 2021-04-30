@@ -7,6 +7,7 @@ use Faker\Factory;
 use Faker\Generator;
 use InvalidArgumentException;
 use Prokl\WordpressCustomTableEditorBundle\Services\Contracts\DataManagerInterface;
+use Prokl\WordpressCustomTableEditorBundle\Services\FixtureGenerators\Contracts\FixtureGeneratorInterface;
 use RuntimeException;
 use Symfony\Component\DependencyInjection\ServiceLocator;
 

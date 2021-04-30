@@ -34,13 +34,19 @@ services:
       - init: []
     tags: ['service.bootstrap']
 
+  # Создатель таблиц.
   table_admin_page_manager.creator_table:
     class: Prokl\WordpressCustomTableEditorBundle\Services\Utils\CreatorTable
     arguments: ['@table_admin_page_manager.wpdb']
 
+  Prokl\WordpressCustomTableEditorBundle\Services\Utils\CreatorTable: '@table_admin_page_manager.creator_table'
+
+  # Генератор фикстур
   table_admin_page_manager.fixture_generator:
     class: Prokl\WordpressCustomTableEditorBundle\Services\Utils\FixtureGenerator
     arguments: [!tagged_locator { tag: 'fixture_generator.item' }]
+
+  Prokl\WordpressCustomTableEditorBundle\Services\Utils\FixtureGenerator: '@table_admin_page_manager.fixture_generator'
 
   # Handler генерации фикстуры текстового поля с ограничением по минимальной и максимальной длине.
   table_admin_page_manager.length_fixture_generator:
