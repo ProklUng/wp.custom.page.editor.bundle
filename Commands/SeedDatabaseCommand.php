@@ -24,7 +24,7 @@ class SeedDatabaseCommand extends Command
     private const DEFAULT_QUANTITY_RECORD = 5;
 
     /**
-     * @var ServiceLocator $entityLocator Локатор с сущносятми таблиц.
+     * @var ServiceLocator $entityLocator Локатор с сущностями таблиц.
      */
     private $entityLocator;
 

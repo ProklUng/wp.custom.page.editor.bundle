@@ -142,15 +142,25 @@ class ExampleEntity extends DataManager
 
 #### Прочее
 
-##### Создатель таблиц.
+##### Создатель таблиц
 
 Сервис `table_admin_page_manager.creator_table`.
 
 - `setTable(string $table)` - задать имя таблицы
 - `createFromSchema(DataManagerInterface $schema)` - создать таблицу из схемы (схема - сущность, см. выше) 
 
-##### Генератор фикстур.
+##### Генератор фикстур
 
 Сервис `table_admin_page_manager.fixture_generator`.
 
 - `fromSchema(DataManagerInterface $schema, int $count = 1)` - создать столько-то записей по схеме сущности
+
+##### Консольные команды
+
+- `migrator:seed`
+
+Параметры:
+
+ - `table` - таблица
+ - `count` - сколько записей генерировать. По умолчанию - 5
+ - `truncate` - Чикать содержимое таблицы. По умолчанию - true
