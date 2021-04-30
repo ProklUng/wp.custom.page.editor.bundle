@@ -1,0 +1,12 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: true
+
+  # Наполнение таблицы фикстурой.
+  wp_migration_bundle.command_seed_database:
+    class: Prokl\WordpressCustomTableEditorBundle\Commands\SeedDatabaseCommand
+    arguments: ['@table_admin_page_manager.fixture_generator', '@table_admin_page_manager.seeder_db', !tagged_locator { tag: 'wp_custom_table_editable' }]
+    tags:
+      - { name: console.command, comand: migrator:seed }

@@ -55,6 +55,10 @@ services:
     tags:
       - { name: fixture_generator.item }
 
+  table_admin_page_manager.seeder_db:
+    class: Prokl\WordpressCustomTableEditorBundle\Services\Utils\SeedDatabase
+    arguments: ['@table_admin_page_manager.wpdb']
+
   table_admin_page_manager.real_image_generator:
     class: Prokl\WordpressCustomTableEditorBundle\Services\FixtureGenerators\RealImage
     tags:
@@ -64,3 +68,5 @@ services:
     class: Prokl\WordpressCustomTableEditorBundle\Services\FixtureGenerators\RealPost
     tags:
       - { name: fixture_generator.item }
+
+

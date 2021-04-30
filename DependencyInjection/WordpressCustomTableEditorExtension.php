@@ -30,6 +30,7 @@ class WordpressCustomTableEditorExtension extends Extension
         );
 
         $loader->load('services.yaml');
+        $loader->load('commands.yaml');
         $loader->load('entities.yaml');
     }
 
