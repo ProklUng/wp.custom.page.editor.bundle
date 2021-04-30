@@ -4,6 +4,7 @@ services:
     autoconfigure: true
     public: true
 
+  # Пример сущности.
   example_entity:
     class: Prokl\WordpressCustomTableEditorBundle\Entities\ExampleEntity
     tags:

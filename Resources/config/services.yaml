@@ -4,6 +4,10 @@ services:
     autoconfigure: true
     public: true
 
+  table_admin_page_manager.wpdb:
+    public: false
+    class: wpdb
+
   # Слушатели событий по умолчанию.
   table_admin_page_manager.default_events:
     class: Prokl\WordpressCustomTableEditorBundle\Services\Manager\BaseEventsManager
@@ -12,7 +16,7 @@ services:
   table_admin_page_manager.collector:
     class: Prokl\WordpressCustomTableEditorBundle\Services\Manager\CollectorEntities
     arguments:
-      - '@wpdb'
+      - '@table_admin_page_manager.wpdb'
       - '@event_dispatcher'
       - '@table_admin_page_manager.default_events'
       - !tagged { tag: wp_custom_table_editable }
@@ -30,9 +34,27 @@ services:
       - init: []
     tags: ['service.bootstrap']
 
+  table_admin_page_manager.creator_table:
+    class: Prokl\WordpressCustomTableEditorBundle\Services\Utils\CreatorTable
+    arguments: ['@table_admin_page_manager.wpdb']
+
+  table_admin_page_manager.fixture_generator:
+    class: Prokl\WordpressCustomTableEditorBundle\Services\Utils\FixtureGenerator
+    arguments: [!tagged_locator { tag: 'fixture_generator.item' }]
+
   # Handler генерации фикстуры текстового поля с ограничением по минимальной и максимальной длине.
-  example_entity.length_fixture_generator:
+  table_admin_page_manager.length_fixture_generator:
     class: Prokl\WordpressCustomTableEditorBundle\Services\FixtureGenerators\DescriptionLength
     arguments: [5, 150]
+    tags:
+      - { name: fixture_generator.item }
+
+  table_admin_page_manager.real_image_generator:
+    class: Prokl\WordpressCustomTableEditorBundle\Services\FixtureGenerators\RealImage
+    tags:
+      - { name: fixture_generator.item }
+
+  table_admin_page_manager.real_post_generator:
+    class: Prokl\WordpressCustomTableEditorBundle\Services\FixtureGenerators\RealPost
     tags:
       - { name: fixture_generator.item }
