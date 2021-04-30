@@ -2,7 +2,7 @@
 
 ## Установка
 
-`composer require `
+`composer require proklung/wp-custom-page-editor-bundle`
 
 ## Использование
 
